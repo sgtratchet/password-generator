@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+}
+body{
+    color: #363330;
+
+    background-color:lightblue;
+}
+header{
+    padding: 20px 0;
+    margin: 0 0px 20px 0px;
+    background-color:rgb(27, 111, 206);
+    display:flex;
+    justify-content: center;
+    border: 3px solid #363330;
+}
+header h1{
+    text-decoration:none;
+}
+body div{
+    border: 2px solid #363330;
+    width: 50%;
+    margin: 0 25%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+}
+

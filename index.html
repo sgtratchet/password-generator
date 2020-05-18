@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel='stylesheet' href='./assets/css/styles.css'/>
+    <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1> Password Generator</h1>
+    </header>
+
+    <div>
+        <H2>Click below for your new password.</H2> <br>
+        <button id=password-generator onclick='generate()'>generate password</button>
+    </div>
+<script>
+    // var lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    // var uppdercase='ABCDEFHIJKLMNOPQRSTUVWXYZ';
+    // var special= '!@#$%^&*()_+';
+    // var numbers= '1234567890';
+    var password = "";
+    var lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    var uppercase= ["A","B","C","D","E","F","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    var special= '!@#$%^&*()_+';
+    var numeric= "1234567890";
+    var all ="abcdefghijklmnopqrstuvwxyzABCDEFHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+1234567890";
+
+   generate = function(){
+//password length...
+        var promptLength=
+        window.prompt("Select password length. Must be between 8 and 128 characters long.");
+            if (promptLength >=8 && promptLength <= 128){
+                promptLength= promptLength;
+                console.log(promptLength);
+            }
+            else {
+                window.alert("Character length must be between 8 and 128.");
+                generate();
+            }
+    
+//password type...
+        var promptType=
+        window.prompt("Select character types. Please choose between LOWERCASE, UPPERCASE, NUMERIC, SPECIAL characters or ALL.");
+            promptType = promptType.toLowerCase();
+
+            switch (promptType){
+                case "lowercase":
+                    for(var i=0; i <= promptLength -1;i++){
+                        password= password + lowercase[Math.floor(Math.random()* Math.floor(promptLength -1))];
+                    }
+                    console.log(promptType)
+                    break;
+                case "uppercase":
+                    for(var i=0; i <= promptLength -1;i++){
+                        password= password + uppercase [Math.floor(Math.random()* Math.floor(promptLength -1))];
+                    }
+                    console.log(promptType)
+                    break;
+                case "numeric":
+                    for(var i=0; i <= promptLength -1;i++){
+                        password= password + numeric [Math.floor(Math.random()* Math.floor(promptLength -1))];
+                    }
+                    console.log(promptType)
+                    break;
+                case "special":
+                    for(var i=0; i <= promptLength -1;i++){
+                        password= password + special [Math.floor(Math.random()* Math.floor(promptLength -1))];
+                    }
+                    console.log(promptType)
+                    break;
+                case "all":
+                for(var i=0; i <= promptLength -1;i++){
+                        password= password + all [Math.floor(Math.random()* Math.floor(promptLength -1))];
+                    }
+                    console.log(promptType)
+                    break;
+                default:
+                    window.alert("Please select a valid option.");
+                    generate();
+            }
+
+        //confirm selections
+        var passwordConfirm = window.confirm("Your selections are "+promptLength +", "+ promptType);
+
+        // show new password
+        alert (password);
+        return password
+    };
+
+</script>
+</body>
+</html>
